@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>34filter</title>
+    <!--<link href="style.css" rel="stylesheet" type="text/css" />-->
+</head>
+
+<style>
+body {
+    text-align: center;
+	background-color: black;
+	color: gray;
+}
+
+input {
+	color: gray;
+	background-color: black;
+}
+
+.filter_button {
+    margin: 1% auto;
+    display: block;
+	color: lightgray;
+	border: solid 1px darkred;
+	background-color: black;
+}
+</style>
+
+<body>	
+    <h1>34filter</h1>
+    <p>Hate obscene content on your favorite image board? Tired of writing remove filters only for more to get through? With 34filter, you can easily erase all that nasty content by automatically generating every tag in that category!</p>
+    <p>Once you finish applying all your filters, simply copy them from the box below.</p>
+    <input id="filter_list">
+    <div id="buttons">Loading filters...</div>
+    <script>
+	filters = ["sex","genitals","nudity","suggestive","gay","BDSM","scat/piss","furry","futanari","notconsensual","gore/vore","feet","incest","inflation/expansion"];
+	add_buttons();
+
+	function filter (filter) {
+		filters = document.getElementById("filter_list").value;
+		switch (filter) {
+			case 0: //sex
+				filters += " -sex -paizuri -bukkake -cum -double_handjob -blowjob -fellatio -penis_in_pussy -straddling -cowgirl_position -masturbation -anal_sex -bodily_fluids -cum_inside -dildo -sex_toy -ejaculation -genital_fluids -group_sex -intersex -penetration -imminent_sex -penis_on_face -orgy -sucking_nipples -bedroom_sex -orgasm -rubbing_pussy -scissoring -tribadism -penis_slap -slapping_with_penis -anal -vaginal_penetration -ass_on_face -facesitting -oral -big_dildo -buttjob -hot_dogging -cum_on_ass -ass_slap -disembodied_penis -double_paizuri -clussy -pussy_juice -pubic_hair";
+				break;
+			case 1: //genitals
+				filters += " -genitals -pussy -penis -humanoid_penis -veiny_penis -erection -looking_at_pussy -huge_cock -balls -gigantic_penis -big_penis -hairy_pussy -hairless_pussy -anus -testicles -uncut -vaginal -vagina";
+				break;
+			case 2: //nudity
+				filters += " -nudity -nipples -nude -nude_male -nude_female -completely_nude -areolae -bottomless -topless -naked -huge_nipples -big_nipples -puffy_nipples -no_panties -mostly_nude -panty_pull -huge_areolae -areola_slip -no_bra -undressing";
+				break;
+			case 3: //suggestive
+				filters += " -ass -big_ass -ass_cleavage -breasts -big_breasts -gigantic_breasts -huge_breasts -breast -huge_ass -massive_ass -slap_mark -butt_crack -busty -wide_hips -pinup -pinup_pose -erect_nipples -voluptuous -hyper_ass -hyper_breasts -thick_thighs -seductive -cameltoe -large_breasts -curvy -cleavage -medium breasts -kissing -spread_legs -underwear -underboob";
+				break;
+			case 4: //gay
+				filters += " -gay -yaoi -female_supporting_yaoi -femboy";
+				break;
+			case 5: //BDSM
+				filters += " -humiliated -BDSM -chastity_cage -choking -asphyxiation -peril -ball_gag -dominatrix -slave -arm_binder -leash -leashed -restrained -tentacles";
+				break;
+			case 6: //scat
+				filters += " -urinating -urine -urination -wetting_self -fart -diaper -scat";
+				break;
+			case 7: //furry
+				filters += " -furry -anthro -animal_genitalia -canine -dragon -equine -fur -feral -feline -jackal -knot -kemono -knotting -quadruped -rabbit -reptile -ursid -wolf -zoophilia -zebra";
+				break;
+			case 8: //futanari
+				filters += " -futanari -1futa -dickgirl -2futas -futanari_penetrating";
+				break;
+			case 9: //nonconsensual
+				filters += " -questionable_consent -rape";
+				break;
+			case 10: //gore
+				filters += " -gore -bisected -necrophilia -intestines -guro -death -snuff -cut_in_half -imminent_death -vore -anal_vore -implied_vore -post_vore -torture";
+				break;
+			case 11: //feet
+				filters += " -feet";
+				break;
+			case 12: //incest
+				filters += " -incest";
+				break;
+			case 13: //inflation
+				filters += " -inflation -pregnant -giantess -breast_expansion";
+				break
+		}
+		document.getElementById("filter_list").value = filters;
+	}
+
+	function add_buttons() {
+		inner = ``;
+		for (i = 0; i < filters.length; i++) {
+			inner += `<button class="filter_button" onclick="filter(`+i+`)">-`+filters[i]+`</button>`;
+		}
+		document.getElementById('buttons').innerHTML = inner;
+	}
+	</script>
+</body>
+
+</html>
